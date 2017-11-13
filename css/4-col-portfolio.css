@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
  */
 
-body {
+ body {
   padding-top: 54px;
 }
 
@@ -29,7 +29,7 @@ body {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -2258,7 +2258,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-success {
   color: #fff;
   background-color: #28a745;
-  border-color: #28a745
+  border-color: #28a745;
+}
+.boton{
+  margin: auto;
+  display: block;
 }
 
 .btn-success:hover {
@@ -6500,7 +6504,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 
 @media (min-width:1200px) {
   .float-xl-left {
-float: left!important
+    float: left!important
   }
   .float-xl-right {
     float: right!important
