@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2017 a las 19:44:58
+-- Tiempo de generación: 13-11-2017 a las 15:22:39
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -46,7 +46,7 @@ INSERT INTO `tbl_recursos` (`recurso_id`, `recurso_nombre`, `recurso_tipo`, `rec
 (4, 'Aula A informática', 'Aula de informática', ''),
 (5, 'Aula B informática', 'Aula de informática', ''),
 (6, 'Despacho A', 'Despacho', ''),
-(7, 'Despacho B', 'Despacho', ''),
+(7, 'Despacho B', 'Despacho', '/img/DespachoB.jpg'),
 (8, 'Sala de reuniones A', 'Sala de reuniones', ''),
 (9, 'Sala de reuniones B', 'Sala de reuniones', ''),
 (10, 'Proyector portátil A', 'Proyector portátil', ''),
@@ -68,16 +68,9 @@ CREATE TABLE `tbl_reservasrecursos` (
   `reservarecurso_recurso` int(3) NOT NULL,
   `reservarecurso_fechareserva` datetime DEFAULT CURRENT_TIMESTAMP,
   `reservarecurso_fechadevolucion` datetime DEFAULT CURRENT_TIMESTAMP,
-  `reservarecurso_usuario` int(3) NOT NULL,
-  `reservarecurso_estado` enum('Disponible','Reservada') COLLATE utf8_unicode_ci NOT NULL
+  `reservarecurso_usuario` int(3) DEFAULT NULL,
+  `reservarecurso_estado` enum('Disponible','Reservado') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `tbl_reservasrecursos`
---
-
-INSERT INTO `tbl_reservasrecursos` (`reservarecurso_id`, `reservarecurso_recurso`, `reservarecurso_fechareserva`, `reservarecurso_fechadevolucion`, `reservarecurso_usuario`, `reservarecurso_estado`) VALUES
-(7, 1, '2017-11-10 19:25:29', '2017-11-10 19:25:29', 1, 'Disponible');
 
 -- --------------------------------------------------------
 
@@ -97,10 +90,7 @@ CREATE TABLE `tbl_usuarios` (
 
 INSERT INTO `tbl_usuarios` (`usuario_id`, `usuario_nombre`, `usuario_pw`) VALUES
 (1, 'Oscar', 'qweQWE123'),
-(2, 'Nico', 'qweQWE123'),
-(3, 'David', 'qweQWE123'),
-(4, 'Sergio', 'qweQWE123'),
-(5, 'Admin', 'qweQWE123');
+(2, 'Nico', 'qweQWE123');
 
 --
 -- Índices para tablas volcadas
@@ -140,13 +130,13 @@ ALTER TABLE `tbl_recursos`
 -- AUTO_INCREMENT de la tabla `tbl_reservasrecursos`
 --
 ALTER TABLE `tbl_reservasrecursos`
-  MODIFY `reservarecurso_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `reservarecurso_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `usuario_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `usuario_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
