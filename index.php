@@ -132,14 +132,42 @@
               echo "<h4 class='card-title'>";
                   echo "<a href='#'>$result[recurso_nombre]</a>";
                 echo "</h4>";
-              echo "<h6>($result[recurso_tipo])</h6>";  
+              echo "<h6>($result[recurso_tipo])</h6>";
+              echo "Reservado por: <b>$result[usuario_nombre] </b></br>";
+              echo "Fecha reserva: ";
+              echo date ('d-m-Y', strtotime($result['reservarecurso_fechareserva']));
+              echo " (";
+              echo date ('G:i:s', strtotime($result['reservarecurso_fechareserva']));
+              echo ")";  
               // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
-                echo "<button type='button' class='btn btn-danger boton'>Reservar</button>";
+                echo "<button type='button' class='btn btn-danger boton'>Devolver</button>";
             echo "</div>";
           echo "</div>";
         echo "</div>";
       } else {
-        
+        echo "<div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>";
+          echo "<div class='card h-100'>";
+            echo "<a href='#''><img class='card-img-top' src='img/Aula.jpg' alt=''></a>";
+            echo "<div class='card-body' style='background-color:#E6E6E6;'>";
+              echo "<h4 class='card-title'>";
+                  echo "<a href='#'>$result[recurso_nombre]</a>";
+                echo "</h4>";
+              echo "<h6>($result[recurso_tipo])</h6>";
+              echo "Reservado por: <b>$result[usuario_nombre] </b></br>";
+              echo "Fecha reserva: ";
+              echo date ('d-m-Y', strtotime($result['reservarecurso_fechareserva']));
+              echo " (";
+              echo date ('G:i:s', strtotime($result['reservarecurso_fechareserva']));
+              echo ") </br>";
+              echo "Fecha devolución: ";
+              echo date ('d-m-Y', strtotime($result['reservarecurso_fechadevolucion']));
+              echo " (";
+              echo date ('G:i:s', strtotime($result['reservarecurso_fechadevolucion']));
+              echo ")";   
+              // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
+            echo "</div>";
+          echo "</div>";
+        echo "</div>";
       } 
     }
     echo "</div>";
