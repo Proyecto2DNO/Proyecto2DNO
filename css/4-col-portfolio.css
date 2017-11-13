@@ -604,7 +604,7 @@ pre code {
 
 .container {
   padding-right: 15px;
-  padding-left: 260px;
+  padding-left: 300px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -629,7 +629,7 @@ pre code {
 
 @media (min-width:1200px) {
   .container {
-    max-width: 1260px
+    max-width: 100%
   }
 }
 
