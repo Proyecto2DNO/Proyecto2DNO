@@ -10,7 +10,29 @@
 	$conexion = mysqli_connect("localhost","root","","colegiodno");
 	$acentos=mysqli_query($conexion,"SET NAMES 'utf8'");
 
+	// MOSTRAR DISPONIBLES Y RESERVADOS
+	echo "<h3> Mostrar Disponibles y Reservados</h3>";
+	$query = "SELECT * FROM tbl_recursos";
+	$lanzarquery = mysqli_query($conexion,$query);
+	while($resultado=mysqli_fetch_array($lanzarquery)){
+		if($resultado['recurso_estado']=="Disponible"){
+			echo "Recurso: $resultado[recurso_nombre] </br>";
+			echo "Tipo de recurso: $resultado[recurso_tipo] </br>";
+			echo "Img: $resultado[recurso_nombre] </br>";
+			echo "Estado: $resultado[recurso_estado] </br></br>";
+			echo "<input type='submit' value='Reservar'> </br></br>";
+		} else {
+			echo "Recurso: $resultado[recurso_nombre] </br>";
+			echo "Tipo de recurso: $resultado[recurso_tipo] </br>";
+			echo "Img: $resultado[recurso_nombre] </br>";
+			echo "Estado: $resultado[recurso_estado] </br></br>";
+			echo "<input type='submit' value='Devolver'> </br></br>";
+		}
+	}
+
+
 	// MOSTRAR RESULTADOS
+	echo "<h3>Reservados y Devueltos</h3>";
 	$q = "SELECT tbl_reservasrecursos.reservarecurso_id, tbl_recursos.recurso_nombre, tbl_recursos.recurso_tipo, tbl_recursos.recurso_img, tbl_usuarios.usuario_nombre, tbl_reservasrecursos.reservarecurso_estado, tbl_reservasrecursos.reservarecurso_fechareserva, tbl_reservasrecursos.reservarecurso_fechadevolucion
 	FROM ((`tbl_reservasrecursos`
 	INNER JOIN tbl_recursos ON tbl_reservasrecursos.reservarecurso_recurso = tbl_recursos.recurso_id)
@@ -18,47 +40,47 @@
 	$busqueda = mysqli_query($conexion, $q);
 
 	while ($result=mysqli_fetch_array($busqueda)){
-		if($result['reservarecurso_estado']=="Disponible"){
+		if($result['reservarecurso_estado']=="Reservado"){
 			echo "<form name='reservar' action='index_proc.php' method='GET'>";
-				echo "Id: $result[reservarecurso_id] </br>";
-				echo "Recurso: $result[recurso_nombre] </br>";
-				echo "Tipo de recurso: $result[recurso_tipo] </br>";
-				echo "Img: $result[recurso_img] </br>";
+			echo "Id: $result[reservarecurso_id] </br>";
+			echo "Recurso: $result[recurso_nombre] </br>";
+			echo "Tipo de recurso: $result[recurso_tipo] </br>";
+			echo "Img: $result[recurso_img] </br>";
 				// SI ESTA DISPONIBLE NO DEBERIA MOSTRAR AMBAS FECHAS.
 				// echo "Reservado por: $result[usuario_nombre] </br>";
-				echo "Estado: $result[reservarecurso_estado] </br>";
+			echo "Estado: $result[reservarecurso_estado] </br>";
 				// SI ESTA DISPONIBLE NO DEBERIA MOSTRAR AMBAS FECHAS.
 				//echo "Fecha reserva:";
 				//echo date ('G:i:s d-m-Y', strtotime($result['reservarecurso_fechareserva']));
 				//echo "</br>";
 				//echo "Fecha devolución: ";
 				//echo date ('G:i:s d-m-Y', strtotime($result['reservarecurso_fechadevolucion']));		
-				echo "</br></br>";
+			echo "</br></br>";
 				// Se guarda en un tipo hidden para guardar el id.
-				echo "<input type='hidden' name='id' value='$result[reservarecurso_id]'>";		
-				echo "<input type='submit' name='' value='Reservar'>";
+			echo "<input type='hidden' name='id' value='$result[reservarecurso_id]'>";		
+			echo "<input type='submit' name='' value='Devolver'>";
 			echo "</form>";
 
 			echo "</br></br></br>";
 		} else {
 			echo "<form name='devolver' action='index_proc2.php' method='GET'>";
-				echo "Id: $result[reservarecurso_id] </br>";
-				echo "Recurso: $result[recurso_nombre] </br>";
-				echo "Tipo de recurso: $result[recurso_tipo] </br>";
-				echo "Img: $result[recurso_img] </br>";
-				echo "Estado: $result[reservarecurso_estado] </br>";
-				echo "Reservado por: $result[usuario_nombre] </br>";				
-				echo "Fecha reserva: ";
-				echo date ('G:i:s d-m-Y', strtotime($result['reservarecurso_fechareserva']));
-				echo "</br>";
+			echo "Id: $result[reservarecurso_id] </br>";
+			echo "Recurso: $result[recurso_nombre] </br>";
+			echo "Tipo de recurso: $result[recurso_tipo] </br>";
+			echo "Img: $result[recurso_img] </br>";
+			echo "Estado: $result[reservarecurso_estado] </br>";
+			echo "Reservado por: $result[usuario_nombre] </br>";				
+			echo "Fecha reserva: ";
+			echo date ('G:i:s d-m-Y', strtotime($result['reservarecurso_fechareserva']));
+			echo "</br>";
 				// SI ESTA NO DISPONIBLE NO DEBERIA MOSTRAR LA FECHA DE DEVOLUCION
 				// echo "Fecha devolución: ";
 				// echo date ('G:i:s d-m-Y', strtotime($result['reservarecurso_fechadevolucion']));	
 				// Se guarda en un tipo hidden para guardar el id.	
-				echo "<input type='hidden' name='id' value='$result[reservarecurso_id]'>";		
-				echo "<input type='submit' name='' value='Devolver'>";
+				// echo "<input type='hidden' name='id' value='$result[reservarecurso_id]'>";		
+				// echo "<input type='submit' name='' value='Devolver'>";
 			echo "</form>";
-				echo "</br></br></br>";
+			echo "</br></br></br>";
 		}
 
 	}
