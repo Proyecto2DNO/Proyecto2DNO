@@ -27,8 +27,8 @@ if(isset($_POST['cerrar_sesion'])) {
 
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='#'><span> <?php echo "Bienvenido " . $_SESSION['username']; ?></span></a></li>
-   <li><a href='login.php'><span><?php echo "Cerrar sesión" ?></span></a></li>
+   <li class='active'><a href='#'><span> <?php echo "Bienvenido " . $_SESSION['usuario_nombre']; ?></span></a></li>
+   <li><a href='index.php'><span><?php echo "Cerrar sesión" ?></span></a></li>
    <li><a href='personal.php'><span>Personal</span></a></li>
 
 
