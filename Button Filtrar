@@ -1,0 +1,7 @@
+</br>
+<button type="button" class="btn btn-default" style="margin: auto;
+    display: block; width: 100%; background-color:white!important;border: 1px solid #ced4da!important;">Filtrar</button>
+
+  <button type="button" class="btn btn-default" style="margin: auto;
+      width: 129px; background-color:white!important;border: 1px solid #ced4da!important;">Limpiar</button>
+  

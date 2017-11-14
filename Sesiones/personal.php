@@ -17,7 +17,7 @@ if(isset($_POST['cerrar_sesion'])) {
    <meta charset='utf-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="prueba.css">
+   <link rel="stylesheet" href="estilo2.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
    <title>Inicio</title>
@@ -27,8 +27,8 @@ if(isset($_POST['cerrar_sesion'])) {
 
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='#'><span> <?php echo "Bienvenido " . $_SESSION['username']; ?></span></a></li>
-   <li><a href='logout.php'><span><?php echo "Cerrar sesión" ?></span></a></li>
+   <li class='active'><a href='#'><span> <?php echo "Bienvenido " . $_SESSION['usuario_nombre']; ?></span></a></li>
+   <li><a href='index.php'><span><?php echo "Cerrar sesión" ?></span></a></li>
    <li><a href='personal.php'><span>Personal</span></a></li>
 
 
