@@ -224,15 +224,15 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: white;
   text-decoration: none;
   background-color: transparent;
-  -webkit-text-decoration-skip: objects
+  -webkit-text-decoration-skip: objects;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,-1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline
+  color: white;
 }
 
 a:not([href]):not([tabindex]) {
@@ -2263,6 +2263,9 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .boton{
   margin: auto;
   display: block;
+  position: absolute;
+  bottom: 15px;
+  left: 138.719px;
 }
 
 .btn-success:hover {
@@ -3858,6 +3861,7 @@ tbody.collapse.show {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem
+
 }
 
 .card>hr {
@@ -3878,7 +3882,8 @@ tbody.collapse.show {
 .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding: 1.25rem
+  padding: 1.25rem;
+  height:200px;
 }
 
 .card-title {

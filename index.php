@@ -37,31 +37,33 @@
       <p class="w3-text-grey">Aqui puedes filtrar los recursos</p>
     </div>
     <div class="w3-bar-block">
-      <div class="form-group w3-bar-item">
-        <label for="usr">Name:</label>
-        <input type="text" class="form-control" id="usr">
+      <form>
+        <div class="form-group w3-bar-item">
+          <label for="usr">Name:</label>
+          <input type="text" class="form-control" id="usr">
+          <br/>
+          <select class="form-control" id="selector 1">
+          <option disabled selected>Selecciona un tipo</option>
+          <option>Aula de teoría</option>
+          <option>Aula Informatica</option>
+          <option>Portatil</option>
+          <option>Despacho</option>
+          <option>Carro de portátil</option>
+          <option>Dispositivo Móvil</option>
+          <option>Sala de reuniones</option>
+          <option>Proyector portátil</option>
+        </select>
         <br/>
-        <select class="form-control" id="selector 1">
-        <option disabled selected>Selecciona un tipo</option>
-        <option>Aula de teoría</option>
-        <option>Aula Informatica</option>
-        <option>Portatil</option>
-        <option>Despacho</option>
-        <option>Carro de portátil</option>
-        <option>Dispositivo Móvil</option>
-        <option>Sala de reuniones</option>
-        <option>Proyector portátil</option>
-      </select>
-      <br/>
-        <select class="form-control" id="selector 1" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
-        <option style="background-color: white; color: black;" disabled selected>Estado</option>
-        <option style="background-color: #A9F5BC; color: black;">Disponible</option>
-        <option style="background-color: #F78181; color: black;">Reservado</option>
-        <option style="background-color: #E6E6E6; color: black;">Devuelto</option>
-
-
-    </select>
-
+          <select class="form-control" id="selector 2" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+          <option style="background-color: white; color: black;" disabled selected>Estado</option>
+          <option style="background-color: #A9F5BC; color: black;">Disponible</option>
+          <option style="background-color: #F78181; color: black;">Reservado</option>
+          <option style="background-color: #E6E6E6; color: black;">Devuelto</option>
+          </select>
+        </br>
+        <button type="button" class="btn btn-default" style="margin: auto; width: 58%; background-color:white!important;border: 1px solid #ced4da!important;">Filtrar</button>
+        <button type="reset" value="reset" class="btn btn-default" style="float:right; margin: auto; width: 40%; background-color:white!important;border: 1px solid #ced4da!important;" onClick="document.getElementById('selector 2').style.backgroundColor='#fff'">Limpiar</button>
+      </form>
   </nav>
 
   <!-- Page Content -->
@@ -79,8 +81,12 @@
       // CONEXION A LA BBDD
       $conexion = mysqli_connect("localhost","root","","colegiodno");
       $acentos=mysqli_query($conexion,"SET NAMES 'utf8'");
+
       $query = "SELECT * FROM tbl_recursos";
       $lanzarquery = mysqli_query($conexion,$query);
+
+
+      
       while($resultado=mysqli_fetch_array($lanzarquery)){
         if($resultado['recurso_estado']=="Disponible"){
           echo "<div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>";
@@ -88,9 +94,10 @@
               echo "<a href='#''><img class='card-img-top' src='img/Aula.jpg' alt=''></a>";
               echo "<div class='card-body' style='background-color:#A9F5BC;'>";
                 echo "<h4 class='card-title'>";
+                    echo "ID: $resultado[recurso_id] ";
                     echo "<a href='#'>$resultado[recurso_nombre]</a>";
                   echo "</h4>";
-                echo "<h6>($resultado[recurso_tipo])</h6>";  
+                echo "<h6>($resultado[recurso_tipo])</h6>"; 
                 // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
                 echo "<button type='button' class='btn btn-success boton'>Reservar</button>";
               echo "</div>";
@@ -102,15 +109,31 @@
               echo "<a href='#''><img class='card-img-top' src='img/Aula.jpg' alt=''></a>";
               echo "<div class='card-body' style='background-color:#FA5858;'>";
                 echo "<h4 class='card-title'>";
+                    echo "ID: $resultado[recurso_id] ";
                     echo "<a href='#'>$resultado[recurso_nombre]</a>";
                   echo "</h4>";
-                echo "<h6>($resultado[recurso_tipo])</h6>";  
+                  echo "<h6>($resultado[recurso_tipo])</h6>";
+                  $query2 = "SELECT tbl_reservasrecursos.reservarecurso_id, tbl_recursos.recurso_id, tbl_usuarios.usuario_nombre, tbl_reservasrecursos.reservarecurso_fechareserva
+                    FROM ((`tbl_reservasrecursos`
+                    INNER JOIN tbl_recursos ON tbl_reservasrecursos.reservarecurso_recurso = tbl_recursos.recurso_id)
+                    INNER JOIN tbl_usuarios ON tbl_reservasrecursos.reservarecurso_usuario = tbl_usuarios.usuario_id)
+                    WHERE tbl_reservasrecursos.reservarecurso_estado='Reservado' AND tbl_recursos.recurso_id=$resultado[recurso_id]";
+                  $lanzarquery2 = mysqli_query($conexion,$query2); 
+                  while($resultado2=mysqli_fetch_array($lanzarquery2)){
+                    echo "Reservado por: <b>$resultado2[usuario_nombre] </b></br>";
+                    echo "Fecha reserva: ";
+                    echo date ('d-m-Y', strtotime($resultado2['reservarecurso_fechareserva']));
+                    echo " (";
+                    echo date ('G:i:s', strtotime($resultado2['reservarecurso_fechareserva']));
+                    echo ") </br>";
+                  }
                 // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
-                echo "<button type='button' class='btn btn-danger boton'>Reservar</button>";
+                echo "<button type='button' class='btn btn-danger boton'>Devolver</button>";
               echo "</div>";
             echo "</div>";
           echo "</div>";
-        }
+        } 
+        
     }
     echo "</div>";
     ?>
@@ -130,6 +153,7 @@
             echo "<a href='#''><img class='card-img-top' src='img/Aula.jpg' alt=''></a>";
             echo "<div class='card-body' style='background-color:#FA5858;'>";
               echo "<h4 class='card-title'>";
+                  echo "ID: $result[reservarecurso_id] ";
                   echo "<a href='#'>$result[recurso_nombre]</a>";
                 echo "</h4>";
               echo "<h6>($result[recurso_tipo])</h6>";
@@ -150,6 +174,7 @@
             echo "<a href='#''><img class='card-img-top' src='img/Aula.jpg' alt=''></a>";
             echo "<div class='card-body' style='background-color:#E6E6E6;'>";
               echo "<h4 class='card-title'>";
+                  echo "ID: $result[reservarecurso_id] ";
                   echo "<a href='#'>$result[recurso_nombre]</a>";
                 echo "</h4>";
               echo "<h6>($result[recurso_tipo])</h6>";
