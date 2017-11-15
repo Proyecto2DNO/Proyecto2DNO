@@ -34,23 +34,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.error1 {
+.error {
   width: auto; 
   margin: 0px auto; 
-  padding: 5px; 
-  color: #a94442; 
-  border-radius: 5px; 
+  padding: 10px; 
+  color: red; 
+  background: none; 
   text-align: left;
-}
-img {
-width: auto;
-height: 30px;
-float: right;
-}
-
-img.2 {
-width: auto;
-height: 500px;
-float: left;
-
 }
