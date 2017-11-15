@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <title>ColegioDNO</title>
+
+  <!-- Bootstrap core CSS -->
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/4-col-portfolio.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+<!-- Menu hrizontal -->
+
+
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+          <i></i>
+        </a>
+      <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
+      <h4><b>BUSQUEDA RECURSO</b></h4>
+      <p class="w3-text-grey">Aqui puedes filtrar los recursos</p>
+    </div>
+    <div class="w3-bar-block">
+      <div class="form-group w3-bar-item">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="usr">
+        <br/>
+        <select class="form-control" id="selector 1">
+        <option disabled selected>Selecciona un tipo</option>
+        <option>Aula de teoría</option>
+        <option>Aula Informatica</option>
+        <option>Portatil</option>
+        <option>Despacho</option>
+        <option>Carro de portátil</option>
+        <option>Dispositivo Móvil</option>
+        <option>Sala de reuniones</option>
+        <option>Proyector portátil</option>
+      </select>
+      <br/>
+        <select class="form-control" id="selector 1" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+        <option style="background-color: white; color: black;" disabled selected>Estado</option>
+        <option style="background-color: #A9F5BC; color: black;">Disponible</option>
+        <option style="background-color: #F78181; color: black;">Reservado</option>
+        <option style="background-color: #F4FA58; color: black;">Devuelto</option>
+
+
+    </select>
+
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading -->
+    <h1 class="my-4">Lista Recursos
+        <small>Secondary Text</small>
+      </h1>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="img/Aula.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Aula 1</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>
+            <button type="button" class="btn btn-success">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="img/Aula1.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Aula 2</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            <button type="button" class="btn btn-danger">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="img/Aula2.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Aula 3</a>
+              </h4>
+            <p class="card-text">
+
+              <li>ASUS GXT3</li>
+              <li>Disponible</li>
+              <li>17-98-2017</li>
+              <li>17-98-2017</li>
+
+
+            </p>
+            <button type="button" class="btn btn-success">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="img/Aula3.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Aula 4</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            <button type="button" class="btn btn-success">Reservar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Project Five</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Project Six</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Project Seven</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                <a href="#">Project Eight</a>
+              </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius adipisci dicta dignissimos neque animi ea, veritatis, provident hic consequatur ut esse! Commodi ea consequatur accusantium, beatae qui deserunt tenetur ipsa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+      </li>
+    </ul>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
