@@ -24,7 +24,7 @@
     $_SESSION['usuario_nombre'] = $usuario_nombre;
     $_SESSION['success'] = "Bienvenido " . $_SESSION['usuario_nombre'];
     
-    header('location: ../index.php');
+    header('location: ../inicio.php');
 
 		
 			}else {
