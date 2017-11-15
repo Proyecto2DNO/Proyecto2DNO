@@ -5,12 +5,12 @@
  */
 
  body {
-  padding-top: 54px;
+  padding-top: 0px;
 }
 
 @media (min-width: 992px) {
   body {
-    padding-top: 56px;
+    padding-top: 0px;
   }
 }
 
@@ -176,7 +176,8 @@ address {
 
 dl, ol, ul {
   margin-top: 0;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+ float: left;
 }
 
 ol ol, ol ul, ul ol, ul ul {
