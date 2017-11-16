@@ -6,6 +6,8 @@ ini_set('session.gc_divisor', 100);
 ini_set('session.cookie_secure', true);
 ini_set('session.use_only_cookies', true);
 session_start();
+
+
  
 /* Cerrar sesión */
 if(isset($_POST['cerrar_sesion'])) {
@@ -113,6 +115,11 @@ if(isset($_POST['cerrar_sesion'])) {
       $query = "SELECT * FROM tbl_recursos";
       $lanzarquery = mysqli_query($conexion,$query);
 
+  // variable declaration
+  // $usuario_nombre = "";
+  $errors = array(); 
+  $_SESSION['success'] = "";
+
 
       
       while($resultado=mysqli_fetch_array($lanzarquery)){
@@ -154,9 +161,18 @@ if(isset($_POST['cerrar_sesion'])) {
                     echo " (";
                     echo date ('G:i:s', strtotime($resultado2['reservarecurso_fechareserva']));
                     echo ") </br>";
+                    // echo "Usuario logueado: $_SESSION[usuario_nombre] </br>";
+                    // echo "Usuario de la reserva: $resultado2[usuario_nombre]";
+                    if ($resultado2['usuario_nombre']==$_SESSION['usuario_nombre'] ) {
+                        echo "<td><button type='button' class='btn btn-danger'>Devolver</button></td>"; // Campo6
+                    } else {
+                        echo "<td><button type='button' class='btn btn-danger disabled'>Reservar</button></td>"; // Campo6
+                    }
                   }
                 // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
-                echo "<button type='button' class='btn btn-danger boton'>Devolver</button>";
+
+
+                        
               echo "</div>";
             echo "</div>";
           echo "</div>";

@@ -155,7 +155,10 @@ if(isset($_POST['cerrar_sesion'])) {
                     echo ") </br>";
                   }
                 // echo "<p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt?</p>";
-                echo "<button type='button' class='btn btn-danger boton'>Devolver</button>";
+                
+                   echo "<button type='button' class='btn btn-danger boton'>Devolver</button>";
+               
+               
               echo "</div>";
             echo "</div>";
           echo "</div>";
