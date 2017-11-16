@@ -2,18 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="estilo.css" rel="stylesheet">
 	<link href="bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/4-col-portafolio.css">
+	<link href="estilo.css" rel="stylesheet">
 
 	<title>Inicio sesión</title>
 	
 </head>
 <body>
-
+<div id='cssmenu'>
+<ul>
+   <li><a href='../index.php'>Inicio</a></li>
+  
+</ul>
+</div>
+<br>
 	<div class="container">
 
 	<form class="form-signin" method="post" action="index.php">

@@ -30,14 +30,15 @@ if(isset($_POST['cerrar_sesion'])) {
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/4-col-portafolio.css">
 
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <title>ColegioDNO</title>
 
 
 <div id='cssmenu'>
 <ul>
-  <li> <a href='Sesiones/index.php'>Iniciar sesión</a></li>
-   <li><a href='#'>Inicio</a></li>
+   <li><a href='index.php'>Inicio</a></li>
+   <li> <a href='Sesiones/index.php'>Iniciar sesión</a></li>
   
 
   

@@ -35,10 +35,13 @@ if(isset($_POST['cerrar_sesion'])) {
 
 <div id='cssmenu'>
 <ul>
-   <li> <a href='Sesiones/index.php'>Cerrar sesión</a></li>
+   <li><a><?php echo "Bienvenido " . $_SESSION['usuario_nombre']; ?></a></li>
+   <li><a href='inicio.php'>Inicio</a></li>
    <li class='active'><a href='#'>Mis reservas</a></li>
-   <li><a href='#'>Inicio</a></li>
-  <li><a ><?php echo "Bienvenido " . $_SESSION['usuario_nombre']; ?></a></li>
+   <li> <a href='Sesiones/index.php'>Cerrar sesión</a></li>
+  
+   
+  
   
 </ul>
 </div>
