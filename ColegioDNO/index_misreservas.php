@@ -32,8 +32,10 @@ if(isset($_POST['cerrar_sesion'])) {
 
 <div id='cssmenu'>
 <ul>
-   <li><a href='index.php'>Inicio</a></li>
-   <li><a href='login.php'>Iniciar sesión</a></li>  
+   <li><a><?php echo "Bienvenido " . $_SESSION['usuario_nombre']; ?></a></li>
+   <li><a href='index_logged.php'>Inicio</a></li>
+   <li class='active'><a href='#'>Mis reservas</a></li>
+   <li><a href='login.php'>Cerrar sesión</a></li>
 </ul>
 </div>
   <!-- Custom styles for this template -->
@@ -55,7 +57,7 @@ if(isset($_POST['cerrar_sesion'])) {
       <p class="w3-text-grey">Aqui puedes filtrar los recursos</p>
     </div>
     <div class="w3-bar-block">
-    	<form name="buscador" action="index_proc.php" method="GET">
+    	<form name="buscador" action="index_proc_logged.php" method="GET">
 	        <div class="form-group w3-bar-item">
 	          <label for="usr">Nombre del recurso:</label>
 	          <input type='text' class='form-control' id='nombre' name='nombre'>
@@ -126,10 +128,10 @@ if(isset($_POST['cerrar_sesion'])) {
 					echo "<a href='#'>$resultado[recurso_nombre]</a>";
 					echo "</h4>";
 					echo "<h6>($resultado[recurso_tipo])</h6>"; 
-					// echo "<form action='index_reservar.php'>";
-					// echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
-					// echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
-					// echo "</form>";
+					echo "<form action='index_reservar.php'>";
+					echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
+					echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
+					echo "</form>";
 					echo "</div>";
 					echo "</div>";
 					echo "</div>";
@@ -155,10 +157,15 @@ if(isset($_POST['cerrar_sesion'])) {
 						echo " (";
 						echo date ('G:i:s', strtotime($resultado2['reservarecurso_fechareserva']));
 						echo ") </br>";
-						// echo "<form action='index_devolver.php'>";
-						// echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
-						// echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
-						// echo "</form>"; 
+						
+			            if ($resultado2['usuario_nombre']==$_SESSION['usuario_nombre'] ) {
+			              echo "<form action='index_devolver.php'>";
+			              echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
+			              echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
+			              echo "</form>";
+			            } else {
+			              echo "<button type='submit' class='btn btn-danger boton' disabled style='cursor:not-allowed; opacity:.30;'>Devolver</button>";
+			            } 
 					} 
 					echo "</div>";
 					echo "</div>";
@@ -249,10 +256,10 @@ if(isset($_POST['cerrar_sesion'])) {
 				echo "<a href='#'>$resultado[recurso_nombre]</a>";
 				echo "</h4>";
 				echo "<h6>($resultado[recurso_tipo])</h6>"; 
-				// echo "<form action='index_reservar.php'>";
-				// echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
-				// echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
-				// echo "</form>";
+				echo "<form action='index_reservar.php'>";
+				echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
+				echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
+				echo "</form>";
 				echo "</div>";
 				echo "</div>";
 				echo "</div>";
@@ -278,10 +285,14 @@ if(isset($_POST['cerrar_sesion'])) {
 					echo " (";
 					echo date ('G:i:s', strtotime($resultado2['reservarecurso_fechareserva']));
 					echo ") </br>";
-					// echo "<form action='index_devolver.php'>";
-					// echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
-					// echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
-					// echo "</form>"; 
+		            if ($resultado2['usuario_nombre']==$_SESSION['usuario_nombre'] ) {
+		              echo "<form action='index_devolver.php'>";
+		              echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
+		              echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
+		              echo "</form>";
+		            } else {
+		              echo "<button type='submit' class='btn btn-danger boton' disabled style='cursor:not-allowed; opacity:.30;'>Devolver</button>";
+		            }
 				} 
 				echo "</div>";
 				echo "</div>";
@@ -304,10 +315,10 @@ if(isset($_POST['cerrar_sesion'])) {
 				echo "<a href='#'>$resultado[recurso_nombre]</a>";
 				echo "</h4>";
 				echo "<h6>($resultado[recurso_tipo])</h6>"; 
-				// echo "<form action='index_reservar.php'>";
-				// echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
-				// echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
-				// echo "</form>";
+				echo "<form action='index_reservar.php'>";
+				echo "<input type='hidden' name='id_recurso' value='$resultado[recurso_id]'>";
+				echo "<button type='submit' class='btn btn-success boton'>Reservar</button>";
+				echo "</form>";
 				echo "</div>";
 				echo "</div>";
 				echo "</div>";
@@ -333,10 +344,14 @@ if(isset($_POST['cerrar_sesion'])) {
 					echo " (";
 					echo date ('G:i:s', strtotime($resultado2['reservarecurso_fechareserva']));
 					echo ") </br>";
-					// echo "<form action='index_devolver.php'>";
-					// echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
-					// echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
-					// echo "</form>"; 
+		            if ($resultado2['usuario_nombre']==$_SESSION['usuario_nombre'] ) {
+		              echo "<form action='index_devolver.php'>";
+		              echo "<input type='hidden' name='id_reserva' value='$resultado2[reservarecurso_id]'>";
+		              echo "<button type='submit' class='btn btn-danger boton'>Devolver</button>";
+		              echo "</form>";
+		            } else {
+		              echo "<button type='submit' class='btn btn-danger boton' disabled style='cursor:not-allowed; opacity:.30;'>Devolver</button>";
+		            }
 				} 
 				echo "</div>";
 				echo "</div>";

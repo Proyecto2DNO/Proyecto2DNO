@@ -6,7 +6,12 @@
 <body>
 	<?php
 		$id_reserva=$_GET['id_reserva'];
-		echo $id_reserva;
+		echo "ID Reserva: $id_reserva";
+		
+		echo "</br>";
+
+		$id_recurso=$_GET['id_recurso'];
+		echo "ID Recurso: $id_recurso";
 		echo "</br>";
 
 		// CONEXION A LA BBDD
@@ -25,7 +30,7 @@
 		echo "$query";
 		$busqueda = mysqli_query($conexion, $q);
 		$busqueda2 = mysqli_query($conexion, $query);
-		header('Location: index.php');
+		header('Location: index_logged.php');
 	?>
 </body>
 </html>
